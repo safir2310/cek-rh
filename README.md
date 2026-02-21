@@ -68,38 +68,30 @@ Buka [http://localhost:3000](http://localhost:3000) di browser.
 
 ## 🚀 Deployment ke Vercel
 
-Untuk mendeploy ke Vercel dengan PostgreSQL database, ikuti panduan lengkap di [DEPLOYMENT.md](./DEPLOYMENT.md).
+Aplikasi sudah dikonfigurasi dengan database Neon PostgreSQL dan siap untuk deployment!
 
 ### Quick Deploy
 
-1. **Setup Database**
-   - Vercel Postgres (rekomendasi) - [Buat Database](https://vercel.com/dashboard/storage)
-   - Atau Neon (gratis) - [Sign up Neon](https://console.neon.tech/)
+1. **Database sudah di-setup** (Neon PostgreSQL)
+   - Connection string sudah dikonfigurasi
+   - Schema sudah di-push ke database
+   - Test users sudah dibuat
 
-2. **Push ke GitHub**
-```bash
-git add .
-git commit -m "feat: your changes"
-git push origin master
-```
-
-3. **Import ke Vercel**
+2. **Import ke Vercel**
    - Buka [vercel.com/new](https://vercel.com/new)
    - Pilih repository `cek-rh`
    - Import dan deploy
 
-4. **Set Environment Variables**
-   - `DATABASE_URL` - dari database provider
-   - `FONNTE_TOKEN` - token Fonnte WhatsApp
+3. **Set Environment Variables di Vercel**
+   - `DATABASE_URL` - gunakan connection string Neon Anda:
+   ```
+   DATABASE_URL=postgresql://neondb_owner:npg_r3SdDk4LjYbq@ep-dry-silence-ai22kt8o-pooler.c-4.us-east-1.aws.neon.tech/neondb?sslmode=require
+   ```
+   - `FONNTE_TOKEN` - token Fonnte WhatsApp (opsional)
 
-5. **Setup Database Schema**
-```bash
-# Set DATABASE_URL production
-export DATABASE_URL="postgresql://user:password@host:port/database"
-
-# Push schema
-bun prisma db push
-```
+4. **Deploy**
+   - Vercel akan otomatis build dan deploy
+   - Database sudah siap dengan schema dan data test
 
 Lihat [DEPLOYMENT.md](./DEPLOYMENT.md) untuk panduan lengkap!
 
