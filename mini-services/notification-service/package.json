@@ -1,0 +1,13 @@
+{
+  "name": "notification-service",
+  "version": "1.0.0",
+  "description": "WhatsApp notification cron job service",
+  "main": "cron-job.js",
+  "scripts": {
+    "start": "node cron-job.js",
+    "dev": "node --watch cron-job.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.20.0"
+  }
+}

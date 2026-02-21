@@ -1,141 +1,229 @@
-# 🚀 Welcome to Z.ai Code Scaffold
+# Cek RH - Sistem Manajemen Tanggal Kadaluarsa
 
-A modern, production-ready web application scaffold powered by cutting-edge technologies, designed to accelerate your development with [Z.ai](https://chat.z.ai)'s AI-powered coding assistance.
+Sistem manajemen tanggal kadaluarsa (RH - Rehydration Date) untuk produk dengan fitur scan barcode, notifikasi otomatis, dan integrasi WhatsApp.
 
-## ✨ Technology Stack
+## 🚀 Fitur Utama
 
-This scaffold provides a robust foundation built with:
+- **📱 Scan Barcode**: Pindai barcode produk dengan kamera atau input manual
+- **🔍 Auto-Search Product**: Mencari nama produk otomatis dari Google berdasarkan barcode
+- **📦 Manajemen Produk**: Tambah, edit, dan hapus produk dengan multiple batch
+- **📊 Dashboard Interaktif**: Tampilan statistik dan status produk (Aman, Wajib Retur, Jatuh RH)
+- **🔔 Notifikasi Cerdas**: Notifikasi otomatis untuk produk yang membutuhkan perhatian
+- **💬 WhatsApp Integration**: Kirim notifikasi otomatis ke WhatsApp
+- **🌙 Dark Mode**: Dukungan mode gelap
+- **📱 Responsive Design**: Tampilan optimal di desktop dan mobile
 
-### 🎯 Core Framework
-- **⚡ Next.js 16** - The React framework for production with App Router
-- **📘 TypeScript 5** - Type-safe JavaScript for better developer experience
-- **🎨 Tailwind CSS 4** - Utility-first CSS framework for rapid UI development
+## 🛠️ Teknologi
 
-### 🧩 UI Components & Styling
-- **🧩 shadcn/ui** - High-quality, accessible components built on Radix UI
-- **🎯 Lucide React** - Beautiful & consistent icon library
-- **🌈 Framer Motion** - Production-ready motion library for React
-- **🎨 Next Themes** - Perfect dark mode in 2 lines of code
+- **Framework**: Next.js 16 dengan App Router
+- **Bahasa**: TypeScript 5
+- **Styling**: Tailwind CSS 4
+- **UI Components**: shadcn/ui (New York style)
+- **Database**: Prisma ORM dengan SQLite
+- **State Management**: Zustand
+- **Authentication**: Custom backend authentication
+- **Icons**: Lucide React
 
-### 📋 Forms & Validation
-- **🎣 React Hook Form** - Performant forms with easy validation
-- **✅ Zod** - TypeScript-first schema validation
+## 📋 Prasyarat
 
-### 🔄 State Management & Data Fetching
-- **🐻 Zustand** - Simple, scalable state management
-- **🔄 TanStack Query** - Powerful data synchronization for React
-- **🌐 Fetch** - Promise-based HTTP request
+- Node.js 18+ atau Bun
+- npm, yarn, atau bun
 
-### 🗄️ Database & Backend
-- **🗄️ Prisma** - Next-generation TypeScript ORM
-- **🔐 NextAuth.js** - Complete open-source authentication solution
+## 🚀 Instalasi
 
-### 🎨 Advanced UI Features
-- **📊 TanStack Table** - Headless UI for building tables and datagrids
-- **🖱️ DND Kit** - Modern drag and drop toolkit for React
-- **📊 Recharts** - Redefined chart library built with React and D3
-- **🖼️ Sharp** - High performance image processing
-
-### 🌍 Internationalization & Utilities
-- **🌍 Next Intl** - Internationalization library for Next.js
-- **📅 Date-fns** - Modern JavaScript date utility library
-- **🪝 ReactUse** - Collection of essential React hooks for modern development
-
-## 🎯 Why This Scaffold?
-
-- **🏎️ Fast Development** - Pre-configured tooling and best practices
-- **🎨 Beautiful UI** - Complete shadcn/ui component library with advanced interactions
-- **🔒 Type Safety** - Full TypeScript configuration with Zod validation
-- **📱 Responsive** - Mobile-first design principles with smooth animations
-- **🗄️ Database Ready** - Prisma ORM configured for rapid backend development
-- **🔐 Auth Included** - NextAuth.js for secure authentication flows
-- **📊 Data Visualization** - Charts, tables, and drag-and-drop functionality
-- **🌍 i18n Ready** - Multi-language support with Next Intl
-- **🚀 Production Ready** - Optimized build and deployment settings
-- **🤖 AI-Friendly** - Structured codebase perfect for AI assistance
-
-## 🚀 Quick Start
-
+1. Clone repository ini
 ```bash
-# Install dependencies
+git clone https://github.com/username/cek-rh.git
+cd cek-rh
+```
+
+2. Install dependencies
+```bash
 bun install
+```
 
-# Start development server
+3. Setup environment variables
+```bash
+cp .env.example .env
+```
+
+Edit `.env` file dan sesuaikan konfigurasi:
+```env
+DATABASE_URL="file:./prisma/rh.db"
+FONNTE_TOKEN=your_fonnte_token_here
+```
+
+4. Setup database
+```bash
+bun run db:push
+```
+
+5. Jalankan development server
+```bash
 bun run dev
-
-# Build for production
-bun run build
-
-# Start production server
-bun start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to see your application running.
+Buka [http://localhost:3000](http://localhost:3000) di browser.
 
-## 🤖 Powered by Z.ai
+## 📖 Penggunaan
 
-This scaffold is optimized for use with [Z.ai](https://chat.z.ai) - your AI assistant for:
+### 1. Registrasi Akun
+- Buka aplikasi dan klik "Daftar Akun"
+- Isi username, nama, email, dan password
+- Klik "Buat Akun"
 
-- **💻 Code Generation** - Generate components, pages, and features instantly
-- **🎨 UI Development** - Create beautiful interfaces with AI assistance  
-- **🔧 Bug Fixing** - Identify and resolve issues with intelligent suggestions
-- **📝 Documentation** - Auto-generate comprehensive documentation
-- **🚀 Optimization** - Performance improvements and best practices
+### 2. Login
+- Masukkan username dan password
+- Klik "Masuk"
 
-Ready to build something amazing? Start chatting with Z.ai at [chat.z.ai](https://chat.z.ai) and experience the future of AI-powered development!
+### 3. Tambah Produk
+- Klik tombol "Tambah" di dashboard
+- Masukkan barcode (scan atau manual)
+- Nama produk akan otomatis dicari dari Google
+- Atur RH (Rehydration Date) dan tanggal kadaluarsa
+- Tambahkan batch jika diperlukan
+- Klik "Simpan Produk"
 
-## 📁 Project Structure
+### 4. Scan Barcode
+- Klik tombol "Scan Barcode"
+- Arahkan kamera ke barcode produk
+- Atau input kode secara manual
+- Sistem akan otomatis mencari nama produk dari Google
+
+### 5. Notifikasi
+- Cek notifikasi di dashboard
+- Produk dengan status "Wajib Retur" (H-14) akan muncul di notifikasi
+- Produk yang sudah jatuh RH juga akan diberitahu
+
+### 6. Pengaturan WhatsApp
+- Klik ikon pesan di dashboard
+- Masukkan token Fonnte
+- Atur notifikasi otomatis untuk produk yang membutuhkan perhatian
+
+## 📊 Status Produk
+
+- **Aman**: Produk masih dalam masa aman
+- **Wajib Retur**: Produk akan jatuh RH dalam 14 hari (H-14)
+- **Jatuh RH**: Produk sudah melewati tanggal RH
+
+## 🗂️ Struktur Proyek
 
 ```
-src/
-├── app/                 # Next.js App Router pages
-├── components/          # Reusable React components
-│   └── ui/             # shadcn/ui components
-├── hooks/              # Custom React hooks
-└── lib/                # Utility functions and configurations
+cek-rh/
+├── prisma/
+│   ├── schema.prisma          # Database schema
+│   └── seed.ts                # Database seeder
+├── src/
+│   ├── app/
+│   │   ├── api/               # API routes
+│   │   │   ├── login/         # Authentication
+│   │   │   ├── register/      # User registration
+│   │   │   ├── search-product/ # Google search
+│   │   │   └── ...
+│   │   ├── layout.tsx         # Root layout
+│   │   ├── page.tsx           # Home page
+│   │   └── globals.css        # Global styles
+│   ├── components/
+│   │   ├── pages/             # Page components
+│   │   │   ├── dashboard-page.tsx
+│   │   │   ├── scan-page.tsx
+│   │   │   ├── add-product-page.tsx
+│   │   │   └── ...
+│   │   ├── ui/                # shadcn/ui components
+│   │   └── layout/            # Layout components
+│   ├── lib/
+│   │   ├── db.ts              # Prisma client
+│   │   └── whatsapp-notification.ts
+│   ├── store/
+│   │   └── rh-store.ts        # Zustand store
+│   └── types/
+│       └── rh.ts              # TypeScript types
+├── mini-services/             # Additional services
+└── package.json
 ```
 
-## 🎨 Available Features & Components
+## 🔧 Konfigurasi
 
-This scaffold includes a comprehensive set of modern web development tools:
+### Database Schema
 
-### 🧩 UI Components (shadcn/ui)
-- **Layout**: Card, Separator, Aspect Ratio, Resizable Panels
-- **Forms**: Input, Textarea, Select, Checkbox, Radio Group, Switch
-- **Feedback**: Alert, Toast (Sonner), Progress, Skeleton
-- **Navigation**: Breadcrumb, Menubar, Navigation Menu, Pagination
-- **Overlay**: Dialog, Sheet, Popover, Tooltip, Hover Card
-- **Data Display**: Badge, Avatar, Calendar
+```prisma
+model User {
+  id        String   @id @default(cuid())
+  username  String   @unique
+  email     String   @unique
+  name      String
+  password  String
+  whatsapp  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
 
-### 📊 Advanced Data Features
-- **Tables**: Powerful data tables with sorting, filtering, pagination (TanStack Table)
-- **Charts**: Beautiful visualizations with Recharts
-- **Forms**: Type-safe forms with React Hook Form + Zod validation
+model Product {
+  id          String   @id @default(cuid())
+  barcode     String   @unique
+  plu         String   @unique
+  name        String
+  rhDays      Int      @default(14)
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  batches     Batch[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
 
-### 🎨 Interactive Features
-- **Animations**: Smooth micro-interactions with Framer Motion
-- **Drag & Drop**: Modern drag-and-drop functionality with DND Kit
-- **Theme Switching**: Built-in dark/light mode support
+model Batch {
+  id          String   @id @default(cuid())
+  batchNumber String
+  expiryDate  DateTime
+  rhDate      DateTime
+  quantity    Int
+  status      String
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id])
+  createdAt   DateTime @default(now())
+}
+```
 
-### 🔐 Backend Integration
-- **Authentication**: Ready-to-use auth flows with NextAuth.js
-- **Database**: Type-safe database operations with Prisma
-- **API Client**: HTTP requests with Fetch + TanStack Query
-- **State Management**: Simple and scalable with Zustand
+## 📱 API Routes
 
-### 🌍 Production Features
-- **Internationalization**: Multi-language support with Next Intl
-- **Image Optimization**: Automatic image processing with Sharp
-- **Type Safety**: End-to-end TypeScript with Zod validation
-- **Essential Hooks**: 100+ useful React hooks with ReactUse for common patterns
+### Authentication
+- `POST /api/login` - Login user
+- `POST /api/register` - Register new user
 
-## 🤝 Get Started with Z.ai
+### Product Management
+- `GET /api/search-product?barcode={barcode}` - Search product by barcode (Google)
+- `POST /api/products` - Create new product
+- `PUT /api/products/{id}` - Update product
+- `DELETE /api/products/{id}` - Delete product
 
-1. **Clone this scaffold** to jumpstart your project
-2. **Visit [chat.z.ai](https://chat.z.ai)** to access your AI coding assistant
-3. **Start building** with intelligent code generation and assistance
-4. **Deploy with confidence** using the production-ready setup
+### Notifications
+- `GET /api/check-notifications` - Check product notifications
+- `POST /api/send-whatsapp` - Send WhatsApp notification
+
+## 🤝 Kontribusi
+
+Kontribusi sangat diapresiasi! Silakan:
+
+1. Fork repository ini
+2. Buat branch fitur (`git checkout -b fitur/AmazingFitur`)
+3. Commit perubahan (`git commit -m 'Add some AmazingFitur'`)
+4. Push ke branch (`git push origin fitur/AmazingFitur`)
+5. Buka Pull Request
+
+## 📝 License
+
+Proyek ini dilisensikan di bawah MIT License.
+
+## 👥 Author
+
+Dibuat dengan ❤️ oleh tim Cek RH
+
+## 📞 Support
+
+Jika Anda memiliki pertanyaan atau membutuhkan bantuan, silakan:
+- Buka issue di GitHub
+- Hubungi tim support
 
 ---
 
-Built with ❤️ for the developer community. Supercharged by [Z.ai](https://chat.z.ai) 🚀
+**Cek RH** - Sistem manajemen tanggal kadaluarsa yang modern dan mudah digunakan!

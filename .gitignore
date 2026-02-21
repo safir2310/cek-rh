@@ -49,3 +49,14 @@ prompt
 server.log
 # Skills directory
 /skills/
+
+# database files
+*.db
+*.db-shm
+*.db-wal
+/prisma/*.db
+/prisma/*.db-shm
+/prisma/*.db-wal
+
+# worklog
+worklog.md
