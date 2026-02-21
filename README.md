@@ -19,7 +19,8 @@ Sistem manajemen tanggal kadaluarsa (RH - Rehydration Date) untuk produk dengan 
 - **Bahasa**: TypeScript 5
 - **Styling**: Tailwind CSS 4
 - **UI Components**: shadcn/ui (New York style)
-- **Database**: Prisma ORM dengan SQLite
+- **Database**: Prisma ORM dengan PostgreSQL (production) / SQLite (development)
+- **Deployment**: Vercel
 - **State Management**: Zustand
 - **Authentication**: Custom backend authentication
 - **Icons**: Lucide React
@@ -64,6 +65,43 @@ bun run dev
 ```
 
 Buka [http://localhost:3000](http://localhost:3000) di browser.
+
+## 🚀 Deployment ke Vercel
+
+Untuk mendeploy ke Vercel dengan PostgreSQL database, ikuti panduan lengkap di [DEPLOYMENT.md](./DEPLOYMENT.md).
+
+### Quick Deploy
+
+1. **Setup Database**
+   - Vercel Postgres (rekomendasi) - [Buat Database](https://vercel.com/dashboard/storage)
+   - Atau Neon (gratis) - [Sign up Neon](https://console.neon.tech/)
+
+2. **Push ke GitHub**
+```bash
+git add .
+git commit -m "feat: your changes"
+git push origin master
+```
+
+3. **Import ke Vercel**
+   - Buka [vercel.com/new](https://vercel.com/new)
+   - Pilih repository `cek-rh`
+   - Import dan deploy
+
+4. **Set Environment Variables**
+   - `DATABASE_URL` - dari database provider
+   - `FONNTE_TOKEN` - token Fonnte WhatsApp
+
+5. **Setup Database Schema**
+```bash
+# Set DATABASE_URL production
+export DATABASE_URL="postgresql://user:password@host:port/database"
+
+# Push schema
+bun prisma db push
+```
+
+Lihat [DEPLOYMENT.md](./DEPLOYMENT.md) untuk panduan lengkap!
 
 ## 📖 Penggunaan
 

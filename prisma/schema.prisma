@@ -9,7 +9,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -22,14 +22,37 @@ model User {
   whatsapp  String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  products  Product[]
 }
 
-model Post {
-  id        String   @id @default(cuid())
-  title     String
-  content   String?
-  published Boolean  @default(false)
-  authorId  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+model Product {
+  id          String   @id @default(cuid())
+  barcode     String   @unique
+  plu         String   @unique
+  name        String
+  rhDays      Int      @default(14)
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  batches     Batch[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([userId])
+}
+
+model Batch {
+  id          String   @id @default(cuid())
+  batchNumber String
+  expiryDate  DateTime
+  rhDate      DateTime
+  quantity    Int
+  status      String
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+
+  @@index([productId])
+  @@index([rhDate])
+  @@index([status])
 }
