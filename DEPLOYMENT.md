@@ -7,14 +7,28 @@ Panduan lengkap untuk mendeploy aplikasi Cek RH ke Vercel dengan PostgreSQL data
 - Akun GitHub
 - Akun Vercel (gratis)
 - Database PostgreSQL (salah satu opsi berikut):
-  - Vercel Postgres (rekomendasi)
-  - Neon (gratis)
+  - Neon (rekomendasi - gratis)
+  - Vercel Postgres
   - Supabase (gratis)
-  - PlanetScale (MySQL, memerlukan perubahan schema)
 
 ## 🚀 Langkah 1: Setup Database PostgreSQL
 
-### Opsi 1: Vercel Postgres (Rekomendasi)
+### Opsi 1: Neon (Rekomendasi - Gratis)
+
+1. Buka [Neon Console](https://console.neon.tech/)
+2. Sign up/Login
+3. Klik **Create a project**
+4. Beri nama project: `cek-rh`
+5. Pilih region (Singapore atau US East)
+6. Klik **Create project**
+7. Copy **Connection String (Pooled)** dari dashboard
+
+Format connection string (dari Neon dashboard):
+```
+DATABASE_URL=postgresql://neondb_owner:password@ep-xxx.aws.neon.tech/neondb?sslmode=require
+```
+
+### Opsi 2: Vercel Postgres
 
 1. Login ke [Vercel Dashboard](https://vercel.com/dashboard)
 2. Klik **Storage** → **Create Database**
@@ -23,25 +37,7 @@ Panduan lengkap untuk mendeploy aplikasi Cek RH ke Vercel dengan PostgreSQL data
 5. Beri nama database (misal: `cek-rh-db`)
 6. Klik **Create**
 
-Setelah dibuat, Anda akan mendapatkan:
-- `DATABASE_URL`
-- `POSTGRES_PRISMA_URL`
-- Kredensial database lainnya
-
-### Opsi 2: Neon (Gratis)
-
-1. Buka [Neon Console](https://console.neon.tech/)
-2. Sign up/Login
-3. Klik **Create a project**
-4. Beri nama project: `cek-rh`
-5. Pilih region (Singapore)
-6. Klik **Create project**
-7. Copy connection string dari dashboard
-
-Format connection string:
-```
-postgresql://username:password@ep-xxx.aws.neon.tech/neondb?sslmode=require
-```
+Setelah dibuat, Anda akan mendapatkan `DATABASE_URL`.
 
 ### Opsi 3: Supabase (Gratis)
 
